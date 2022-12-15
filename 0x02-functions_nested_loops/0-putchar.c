@@ -1,4 +1,5 @@
 #include "main.h"
+
 /**
  * main - Print _putchar
  * is written by bwave
@@ -16,5 +17,6 @@ int main(void)
 	_putchar('a');
 	_putchar('r');
 	_putchar('\n');
+
 	return (0);
 }
