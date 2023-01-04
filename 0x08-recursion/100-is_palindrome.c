@@ -28,16 +28,17 @@ int checkp(int i, int lg, char *s)
 	if (lg > 0)
 	{
 		if (s[i] == s[lg])
+		{
 			return (checkp(i + 1, lg - 1, s));
-	}
-	else if (s[i] != s[lg])
-	{
-		return (0);
-	}
-	else
-	{
-		return (1);
-	}
+		}
+		else if (s[i] != s[lg])
+		{
+			return (0);
+		}
+		else
+		{
+			return (1);
+		}
 	return (1);
 }
 
