@@ -1,4 +1,4 @@
-#include "main,h"
+#include "main.h"
 
 /**
  * helperFunction - returns 0 or 1.
@@ -43,6 +43,6 @@ int is_prime_number(int n)
 	}
 	else
 	{
-		return (helperFunction(n, 3));
+		return (helperFunction(n, 2));
 	}
 }
