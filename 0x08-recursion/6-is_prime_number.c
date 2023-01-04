@@ -18,7 +18,7 @@ int helperFunction(int num, int i)
 		}
 		else
 		{
-			return (helperFuntion(num, i + 1));
+			return helperFuntion(num, i + 1);
 		}
 	}
 	else
