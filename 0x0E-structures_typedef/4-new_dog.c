@@ -1,5 +1,4 @@
 #include "dog.h"
-#include <stdio.h>
 #include <stdlib.h>
 
 /**
@@ -8,7 +7,7 @@
  * @age: age of dog
  * @owner: owner of dog
  *
- * Return: newdog
+ * Return: NULL if fail.
  */
 
 dog_t *new_dog(char *name. float age, char *owner)
