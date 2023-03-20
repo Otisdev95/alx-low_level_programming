@@ -11,59 +11,32 @@
 
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
-	dlistint_t *start;
-	unsigned int i;
-	unsigned int len;
+	dlistint_t *tmp = *head;
 
-	len = len_node(&head);
-
-	start = *head;
 	if (*head == NULL)
 		return (-1);
-	if (index == 0)
+
+	for (; index != 0; index--)
 	{
-		start = start->next;
-		free(*head);
-		*head = start;
-		if (start != NULL)
-			start->prev = NULL;
-		return (1);
-	}
-	for (i = 0; i <= index - 1; i++)
-	{
-		start = start->next;
-		if (!start)
+		if (tmp == NULL)
 			return (-1);
+		tmp = tmp->next;
 	}
-	if (len - 1 == index)
+
+	if (tmp == *head)
 	{
-		start->prev->next = NULL;
-		free(start);
-		return (1);
+		*head = tmp->next;
+		if (*head != NULL)
+			(*head)->prev = NULL;
 	}
-	start->prev->next = start->next;
-	start->next->prev = start->prev;
-	free(start);
+
+	else
+	{
+		tmp->prev->next = tmp->next;
+		if (tmp->next != NULL)
+			tmp->next->prev = tmp->prev;
+	}
+
+	free(tmp);
 	return (1);
-}
-
-/**
- * len_node - list len
- * @node: list
- *
- * Return: unsigned int
- */
-
-unsigned int len_node(dlistint_t **node)
-{
-	unsigned int len = 0;
-	dlistint_t *start;
-
-	start = *node;
-	while (start != NULL)
-	{
-		len += 1;
-		start = start->next;
-	}
-	return (len);
 }
